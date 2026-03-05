@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — KC</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #ffffff;
+    --text: #0a0a0a;
+    --dim: #666;
+    --border: #0a0a0a;
+    --border-light: #e0e0e0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'IBM Plex Sans', sans-serif;
+    line-height: 1.6;
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 48px;
+    border-bottom: 2px solid var(--border);
+  }
+
+  .nav-logo {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 800;
+    font-size: 18px;
+    text-decoration: none;
+    color: var(--text);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--dim);
+  }
+
+  .nav-links a:hover, .nav-links a.active { color: var(--text); }
+
+  /* PAGE HEADER */
+  .page-header {
+    padding: 64px 48px 48px;
+    border-bottom: 2px solid var(--border);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: end;
+  }
+
+  .page-header-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    background: var(--text);
+    color: var(--bg);
+    display: inline-block;
+    padding: 3px 10px;
+    margin-bottom: 20px;
+  }
+
+  .page-header h1 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 800;
+    letter-spacing: -2px;
+    line-height: 1.05;
+  }
+
+  .page-header-right {
+    font-size: 15px;
+    color: var(--dim);
+    line-height: 1.8;
+    padding-bottom: 4px;
+  }
+
+  .page-header-right strong {
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  /* ROWS */
+  .row {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .row-label {
+    padding: 40px 48px;
+    border-right: 1px solid var(--border-light);
+  }
+
+  .row-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--dim);
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .row-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.4;
+  }
+
+  .row-content {
+    padding: 40px 48px;
+  }
+
+  /* TIMELINE */
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .timeline-item {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 24px;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .timeline-item:last-child { border-bottom: none; }
+
+  .timeline-year {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--dim);
+    letter-spacing: 1px;
+    padding-top: 2px;
+  }
+
+  .timeline-body h3 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+
+  .timeline-body .company {
+    font-size: 12px;
+    color: var(--dim);
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+
+  .timeline-body p {
+    font-size: 14px;
+    color: var(--dim);
+    line-height: 1.6;
+  }
+
+  /* SKILL TAGS */
+  .skill-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .skill {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 6px 14px;
+    border: 1px solid var(--border);
+    text-transform: uppercase;
+    color: var(--text);
+  }
+
+  .skill.dim {
+    border-color: var(--border-light);
+    color: var(--dim);
+  }
+
+  /* OUTSIDE WORK */
+  .outside-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1px;
+    background: var(--border-light);
+    border: 1px solid var(--border-light);
+  }
+
+  .outside-item {
+    background: var(--bg);
+    padding: 24px 28px;
+  }
+
+  .outside-item .label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--dim);
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  .outside-item p {
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  /* CONTACT ROW */
+  .contact-row {
+    padding: 40px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid var(--border);
+  }
+
+  .contact-text {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--dim);
+  }
+
+  .contact-link {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--bg);
+    background: var(--text);
+    padding: 12px 24px;
+    border: 2px solid var(--text);
+  }
+
+  .contact-link:hover {
+    background: var(--bg);
+    color: var(--text);
+  }
+
+  footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 48px;
+    border-top: 2px solid var(--border);
+  }
+
+  .footer-copy {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--dim);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 24px;
+    list-style: none;
+  }
+
+  .footer-links a {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--dim);
+    text-decoration: none;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .footer-links a:hover { color: var(--text); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">KC</a>
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/about" class="active">About</a></li>
+    <li><a href="/projects">Projects</a></li>
+    <li><a href="mailto:chenk.ny@gmail.com">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div>
+    <span class="page-header-tag">Background</span>
+    <h1>About<br>Kevin.</h1>
+  </div>
+  <div class="page-header-right">
+    Product manager who started in digital analytics, ended up building the
+    infrastructure that analytics runs on. Currently at <strong>CelerData</strong>,
+    working on real-time data platforms. Somehow also has an AI agent
+    managing their calendar. <strong>Not sure who's in charge anymore.</strong>
+  </div>
+</div>
+
+<!-- EXPERIENCE -->
+<div class="row">
+  <div class="row-label">
+    <span class="row-tag">Career</span>
+    <span class="row-title">Where I've<br>Been</span>
+  </div>
+  <div class="row-content">
+    <div class="timeline">
+      <div class="timeline-item">
+        <span class="timeline-year">2022 →<br>NOW</span>
+        <div class="timeline-body">
+          <h3>Senior Product Manager</h3>
+          <div class="company">CelerData</div>
+          <p>Leading analytics and BI product at a real-time data platform company. End-to-end ownership: data ingestion, visualization, governance, and the lakehouse architecture underneath it all. Also the person who gets paged when the dashboard breaks at 2am.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-year">2019 →<br>2022</span>
+        <div class="timeline-body">
+          <h3>Product Manager, Data</h3>
+          <div class="company">Microsoft / Bloomberg / Binance</div>
+          <p>Led large-scale data initiatives across financial services and tech. Built BI platforms, real-time analytics products, and cloud data infrastructure at companies where "data" meant something very different at each one.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-year">2014 →<br>2019</span>
+        <div class="timeline-body">
+          <h3>Digital Analytics & Growth</h3>
+          <div class="company">Various</div>
+          <p>Started in digital marketing analytics. Learned that the interesting problem isn't the dashboard — it's the pipeline feeding it. Spent five years progressively moving upstream until I was building the platform instead of using it.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SKILLS -->
+<div class="row">
+  <div class="row-label">
+    <span class="row-tag">Toolbox</span>
+    <span class="row-title">What I<br>Know</span>
+  </div>
+  <div class="row-content">
+    <div class="skill-grid">
+      <span class="skill">Data Lakehouse</span>
+      <span class="skill">Real-Time Analytics</span>
+      <span class="skill">BI Platforms</span>
+      <span class="skill">Product Strategy</span>
+      <span class="skill">SQL</span>
+      <span class="skill">Data Governance</span>
+      <span class="skill">AI / LLM</span>
+      <span class="skill">Web3 / DeFi</span>
+      <span class="skill dim">Python (enough to be dangerous)</span>
+      <span class="skill dim">Roadmaps Nobody Reads</span>
+      <span class="skill dim">Poker</span>
+      <span class="skill dim">NBA Hot Takes</span>
+    </div>
+  </div>
+</div>
+
+<!-- OUTSIDE WORK -->
+<div class="row">
+  <div class="row-label">
+    <span class="row-tag">Off-Hours</span>
+    <span class="row-title">Not<br>Working</span>
+  </div>
+  <div class="row-content">
+    <div class="outside-grid">
+      <div class="outside-item">
+        <span class="label">Sport</span>
+        <p>Semi-pro poker player. The variance is fine. Everything is fine. I am fine.</p>
+      </div>
+      <div class="outside-item">
+        <span class="label">Obsession</span>
+        <p>NBA analytics. Will explain why your favorite team's rotation is suboptimal. Unprompted.</p>
+      </div>
+      <div class="outside-item">
+        <span class="label">Experiment</span>
+        <p>Running an AI agent as a personal assistant. It now knows my calendar better than I do.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div class="contact-row">
+  <span class="contact-text">// Want to talk data, products, or argue about playoff seeding?</span>
+  <a href="mailto:chenk.ny@gmail.com" class="contact-link">Get in Touch →</a>
+</div>
+
+<footer>
+  <span class="footer-copy">© 2026 Kevin Chen</span>
+  <ul class="footer-links">
+    <li><a href="https://linkedin.com/in/kchen23">LinkedIn</a></li>
+    <li><a href="mailto:chenk.ny@gmail.com">Email</a></li>
+  </ul>
+</footer>
+
+</body>
+</html>
